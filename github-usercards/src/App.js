@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import UserCard from './components/userCard';
 
 class App extends React.Component{
   constructor(){
@@ -33,14 +34,15 @@ class App extends React.Component{
       })
   }
 
+  
   render(){
     return (
       <>
-        <h1>Hello World, for I am of the App, inheritor of all things of React Components</h1>
-        <h2>{this.state.userData.name}</h2>
-        {this.state.userFollowers.forEach(follower => {
-          return <p>{follower.name}</p>
-        })}
+        <h1>{this.state.userData.name}</h1>
+        <UserCard 
+          userData={this.state.userData}
+          userFollowers={this.state.userFollowers}
+        />
       </>
     );
   }
